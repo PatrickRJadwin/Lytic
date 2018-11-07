@@ -82,6 +82,10 @@ function drawChart() {
 request('AAPL');
 
 function clickChange(newStock) {
-  console.log(newStock);
   request(newStock);
+}
+
+function search() {
+  var srch = document.getElementById("srchbx").value
+  request(srch);
 }
