@@ -1,6 +1,6 @@
 
 var finalData;
-var stock = 'AAPL';
+var stock = 'TSLA';
 var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/chart/1d';
 
 function Get(yourUrl){

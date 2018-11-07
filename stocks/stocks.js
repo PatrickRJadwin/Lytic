@@ -1,4 +1,4 @@
-var stock = 'AAPL';
+var stock = 'TSLA';
 var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
 var url2 = 'https://api.iextrading.com/1.0/stock/' + stock + '/chart/1d';
 
@@ -41,7 +41,7 @@ async function request () {
      document.getElementById("ytd").innerHTML = finalData['ytdChange'].toFixed(2);
    }
 
-   document.getElementById("preClose").innerHTML = finalData['close'];
+   document.getElementById("preClose").innerHTML = finalData['close'].toFixed(2);
    //document.getElementById("open").innerHTML = finalData['open'];
 
 }
