@@ -1,6 +1,5 @@
-var stock = 'TSLA';
-var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
-var url2 = 'https://api.iextrading.com/1.0/stock/' + stock + '/chart/1d';
+
+var finalData3;
 
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -9,7 +8,9 @@ function Get(yourUrl){
     return Httpreq.responseText;
 }
 
-async function request () {
+async function request(stock) {
+   var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
+   var url2 = 'https://api.iextrading.com/1.0/stock/' + stock + '/chart/1d';
    var finalData = JSON.parse(Get(url));
    var finalData2 = JSON.parse(Get(url2));
    var finalDataLngth = finalData2.length - 1;
@@ -43,13 +44,44 @@ async function request () {
 
    document.getElementById("preClose").innerHTML = finalData['close'].toFixed(2);
    //document.getElementById("open").innerHTML = finalData['open'];
-
+   finalData3 = JSON.parse(Get(url2));
+   console.log(typeof finalData3['0']['minute']);
+   google.charts.load('current', {'packages':['line']});
+   google.charts.setOnLoadCallback(drawChart);
 }
-request();
 
-function chngStock(newStock) {
-   stock = newStock;
-   url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
-   console.log(url);
-   request();
+function drawChart() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', '');
+   data.addColumn('number', '');
+   var arr = [];
+   var timearr = [];
+   for (var i = 0; i < finalData3.length; i += 10) {
+      arr.push([finalData3[i]['minute'], finalData3[i]['average']]);
+   }
+   data.addRows(arr);
+
+   var options = {
+     legend: {
+       position: 'none'
+     },
+     axes: {
+        x: {
+           0: {side: 'top'}
+        }
+     },
+     width: '100%',
+     height: '100%'
+   };
+
+   var chart = new google.charts.Line(document.getElementById('curve_chart'));
+
+   chart.draw(data, google.charts.Line.convertOptions(options));
+}
+
+request('AAPL');
+
+function clickChange(newStock) {
+  console.log(newStock);
+  request(newStock);
 }
