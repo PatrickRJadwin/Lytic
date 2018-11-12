@@ -16,20 +16,23 @@ async function request(stock) {
    var finalDataLngth = finalData2.length - 1;
    var sector = " / " + finalData['sector'];
    document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
-
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
+   
    if (sector != "") {
      document.getElementById("sector").innerHTML = sector;
    }
+
    if (finalData['change'] > 0) {
       document.getElementById("txtColor").style.color = "green";
       document.getElementById("arrow").className = "ion ion-md-arrow-dropup-circle display-4 text-primary";
    }
+
    else {
       document.getElementById("txtColor").style.color = "red";
       document.getElementById("arrow").className = "ion ion-md-arrow-dropdown-circle display-4 text-primary";
    }
+
    document.getElementById("pointChng").innerHTML = finalData['change'];
    document.getElementById("percChng").innerHTML = finalData['changePercent'];
 
@@ -37,6 +40,7 @@ async function request(stock) {
      document.getElementById("ytdColor").style.color = "green";
      document.getElementById("ytd").innerHTML = '+' + finalData['ytdChange'].toFixed(2);
    }
+
    else {
      document.getElementById("ytdColor").style.color = "red";
      document.getElementById("ytd").innerHTML = finalData['ytdChange'].toFixed(2);
