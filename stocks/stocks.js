@@ -1,4 +1,3 @@
-
 var finalData3;
 
 function Get(yourUrl){
@@ -15,6 +14,7 @@ async function request(stock) {
    var finalData2 = JSON.parse(Get(url2));
    var finalDataLngth = finalData2.length - 1;
    var sector = " / " + finalData['sector'];
+
    document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
@@ -83,13 +83,20 @@ function drawChart() {
    chart.draw(data, google.charts.Line.convertOptions(options));
 }
 
-request('AAPL');
+var sessionStock = 'AAPL';
+
+request(sessionStock);
 
 function clickChange(newStock) {
   request(newStock);
+  sessionStock = newStock;
 }
 
 function search() {
   var srch = document.getElementById("srchbx").value
   request(srch);
 }
+
+$(window).resize(function(){
+    drawChart();
+});
