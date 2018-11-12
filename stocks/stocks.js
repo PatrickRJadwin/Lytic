@@ -1,4 +1,7 @@
 var finalData3;
+var chart;
+var data;
+var options;
 
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -18,7 +21,7 @@ async function request(stock) {
    document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
-   
+
    if (sector != "") {
      document.getElementById("sector").innerHTML = sector;
    }
@@ -55,7 +58,7 @@ async function request(stock) {
 }
 
 function drawChart() {
-   var data = new google.visualization.DataTable();
+   data = new google.visualization.DataTable();
    data.addColumn('string', '');
    data.addColumn('number', '');
    var arr = [];
@@ -65,7 +68,7 @@ function drawChart() {
    }
    data.addRows(arr);
 
-   var options = {
+   options = {
      legend: {
        position: 'none'
      },
@@ -78,7 +81,7 @@ function drawChart() {
      height: '100%'
    };
 
-   var chart = new google.charts.Line(document.getElementById('curve_chart'));
+   chart = new google.charts.Line(document.getElementById('curve_chart'));
 
    chart.draw(data, google.charts.Line.convertOptions(options));
 }
@@ -98,5 +101,5 @@ function search() {
 }
 
 $(window).resize(function(){
-    drawChart();
+    chart.draw(data, google.charts.Line.convertOptions(options));
 });
