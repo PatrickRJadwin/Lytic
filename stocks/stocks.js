@@ -21,8 +21,6 @@ async function request(stock) {
    document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
-   var name = finalData['companyName'];
-   var nameSpl = name.split(" ");
    if (sector != "") {
      document.getElementById("sector").innerHTML = sector;
    }
@@ -56,7 +54,7 @@ async function request(stock) {
    console.log(typeof finalData3['0']['minute']);
    google.charts.load('current', {'packages':['line']});
    google.charts.setOnLoadCallback(drawChart);
-   chngTwt(nameSpl[0]);
+   twt();
 }
 
 function drawChart() {
@@ -86,14 +84,11 @@ function drawChart() {
    chart = new google.charts.Line(document.getElementById('curve_chart'));
 
    chart.draw(data, google.charts.Line.convertOptions(options));
-
-   chngTwt(name);
 }
 
-function chngTwt(stock) {
-  var twitURL = "https://twitter.com/";
-  var profile = twitURL + stock;
-  document.getElementById("twitter").href = profile;
+function twt(stock) {
+  var twitURL = "https://twitter.com/WSJmarkets";
+  document.getElementById("twitter").href = twitURL;
 }
 
 var sessionStock = 'TSLA';
