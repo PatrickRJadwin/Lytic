@@ -86,12 +86,12 @@ function drawChart() {
    chart.draw(data, google.charts.Line.convertOptions(options));
 }
 
-function twt(stock) {
+function twt() {
   var twitURL = "https://twitter.com/WSJmarkets";
   document.getElementById("twitter").href = twitURL;
 }
 
-var sessionStock = 'TSLA';
+var sessionStock = 'AAPL';
 
 request(sessionStock);
 
