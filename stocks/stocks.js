@@ -2,6 +2,7 @@ var finalData3;
 var chart;
 var data;
 var options;
+var name;
 
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -21,6 +22,7 @@ async function request(stock) {
    document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
+   name = finalData['companyName'].replace(/.Inc\./g, "");;
 
    if (sector != "") {
      document.getElementById("sector").innerHTML = sector;
@@ -86,6 +88,16 @@ function drawChart() {
    chart.draw(data, google.charts.Line.convertOptions(options));
 }
 
+function chngTwt(stock) {
+  var twitURL = "https://twitter.com/";
+  var profile = twitURL + stock;
+  console.log(name);
+  document.getElementById("twitter").href = profile;
+
+}
+
+chngTwt(name);
+
 var sessionStock = 'AAPL';
 
 request(sessionStock);
@@ -93,11 +105,13 @@ request(sessionStock);
 function clickChange(newStock) {
   request(newStock);
   sessionStock = newStock;
+  chngTwt(name);
 }
 
 function search() {
   var srch = document.getElementById("srchbx").value
   request(srch);
+  chngTwt(name);
 }
 
 $(window).resize(function(){
