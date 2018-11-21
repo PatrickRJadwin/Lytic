@@ -17,8 +17,18 @@ async function request(stock) {
    var finalData2 = JSON.parse(Get(url2));
    var finalDataLngth = finalData2.length - 1;
    var sector = " / " + finalData['sector'];
-
-   document.getElementById("closing").innerHTML = finalData2[finalDataLngth]['average'].toFixed(2);
+   var goodValue = true;
+   while (goodValue == true) {
+     var realClosing = finalData2[finalDataLngth]['average'].toFixed(2);
+     if (realClosing == -1) {
+        finalDataLngth -= 1;
+     }
+     else {
+        goodValue = false;
+     }
+   }
+   
+   document.getElementById("closing").innerHTML = realClosing;
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
    if (sector != "") {
@@ -64,7 +74,20 @@ function drawChart() {
    var arr = [];
    var timearr = [];
    for (var i = 0; i < finalData3.length; i += 10) {
-      arr.push([finalData3[i]['minute'], finalData3[i]['average']]);
+      var prevValue = finalData3[i]['average'];
+      if (prevValue != -1) {
+        break;
+      }
+   }
+   for (var i = 0; i < finalData3.length; i += 10) {
+      if (finalData3[i]['average'] != -1) {
+        arr.push([finalData3[i]['minute'], finalData3[i]['average']]);
+        prevValue = finalData3[i]['average'];
+      }
+      else {
+        arr.push([finalData3[i]['minute'], prevValue]);
+      }
+      
    }
    data.addRows(arr);
 
