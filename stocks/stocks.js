@@ -60,7 +60,6 @@ async function request(stock) {
    }
 
    document.getElementById("preClose").innerHTML = finalData['close'].toFixed(2);
-   //document.getElementById("open").innerHTML = finalData['open'];
    finalData3 = JSON.parse(Get(url2));
    google.charts.load('current', {'packages':['line']});
    google.charts.setOnLoadCallback(drawChart);
