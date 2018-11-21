@@ -55,40 +55,31 @@
         <a href="index.html" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
 
         <!-- Sidenav toggle -->
-        <div class="layout-sidenav-toggle navbar-nav align-items-lg-center mr-auto mr-lg-4">
-          <a class="nav-item nav-link px-0 ml-2" href="javascript:void(0)">
-            <i class="ion ion-md-menu text-large align-middle"></i>
-          </a>
-        </div>
+        
 
-        <div class="mr-lg-4">
-          <a class="nav-item nav-link px-0 ml-2" href="pages/logout.php">Logout</a>
-        </div>
+        <div class="navbar-nav align-items-lg-center mr-auto">
+            <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-2 ml-1">|</div>
 
+              <div class="demo-navbar-user nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+                    <span class="px-1 mr-lg-2 ml-2 ml-lg-0"><?php require_once "php/username.php"?></span>
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="pages/logout.php" class="dropdown-item">
+                    <i class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
+                </div>
+              </div>
+        </div>
+            
         <!-- Navbar toggle -->
-        <button class="navbar-toggler" id="toggler" type="button" data-toggle="collapse" data-target="#layout-navbar-collapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="layout-navbar-collapse">
-          <div class="navbar-nav align-items-lg-center">
-          </div>
-        </div>
       </nav>
       <!-- / Layout navbar -->
 
       <div class="layout-container">
 
-        <!-- Layout sidenav -->
-        <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-sidenav-theme">
-          <ul class="sidenav-inner py-1">
-            <li class="sidenav-item active">
-              <a href="index.html" class="sidenav-link"><i class="sidenav-icon ion ion-ios-contact"></i><div>Dashboard</div></a>
-            </li>
-          </ul>
-        </div>
-        <!-- / Layout sidenav -->
-
+        
         <div class="layout-content">
           <div class="container-fluid flex-grow-1 container-p-y">
             <div class="row">
