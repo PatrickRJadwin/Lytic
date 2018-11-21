@@ -9,7 +9,7 @@
     $usrID = mysqli_query($link, $sqlGetUsrID);
 
     $row = mysqli_fetch_assoc($usrID);
-    $usrID =  $row['id'] . "\n";
+    $usrID =  $row['id'];
 
     $sqlGetStocks = "SELECT stocktag FROM savedstocks WHERE userid =\"" . $usrID . "\";";
 

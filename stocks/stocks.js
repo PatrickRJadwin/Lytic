@@ -103,8 +103,22 @@ function clickChange(newStock) {
 function search() {
   var srch = document.getElementById("srchbx").value
   request(srch);
+  sessionStock = srch;
 }
 
 $(window).resize(function(){
     chart.draw(data, google.charts.Line.convertOptions(options));
 });
+
+function addStock() {
+    $.ajax({
+        type: "POST",
+        url: "php/newStock.php",
+        data: {newStk: sessionStock}
+    }).done(function( msg ) {
+        var stk = sessionStock;
+        alert( "Data Saved: " + sessionStock );
+        location.reload();
+        request(stk);
+    });
+}
