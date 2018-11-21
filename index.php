@@ -83,7 +83,7 @@
         <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-sidenav-theme">
           <ul class="sidenav-inner py-1">
             <li class="sidenav-item active">
-              <a href="index.html" class="sidenav-link"><i class="sidenav-icon ion ion-ios-contact"></i><div>Page 1</div></a>
+              <a href="index.html" class="sidenav-link"><i class="sidenav-icon ion ion-ios-contact"></i><div>Dashboard</div></a>
             </li>
           </ul>
         </div>
@@ -100,7 +100,7 @@
                   </div>
                   <div class="form-group" style="padding-top: 20px;">
                     <div class="input-group">
-                      <input type="text" class="form-control" id="srchbx" placeholder="Search for...">
+                      <input type="text" class="form-control" id="srchbx" placeholder="Search by symbol...">
                       <span class="input-group-prepend">
                         <button class="btn btn-secondary" type="button" id="srchbtn" onclick="search();">Go!</button>
                       </span>
@@ -155,11 +155,8 @@
                   </div>
                 </div>
               </div>
-
-              <!-- > -->
             </div>
             <hr class="border-light container-m--x my-0">
-            <!-- Popular products -->
             <div class="row container-m--x" style="height: 100%; max-height: 400px;">
               <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                 <div class="card mb-4" style="height: 95%;">
@@ -203,14 +200,9 @@
   <script src="assets/vendor/libs/popper/popper.js"></script>
   <script src="assets/vendor/js/bootstrap.js"></script>
   <script src="assets/vendor/js/sidenav.js"></script>
-
-  <!-- Libs -->
-
   <!-- `perfect-scrollbar` library required by SideNav plugin -->
   <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
   <!-- Main script -->
-
   <script src="assets/js/main.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="stocks/stocks.js"></script>
