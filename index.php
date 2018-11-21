@@ -106,6 +106,9 @@
                       </span>
                     </div>
                   </div>
+                  <div class="mt-3">
+                    <button type="button" id="newStockBtn" class="btn btn-lg btn-primary" onclick="addStock();" style="margin-top: 25%;">Add Stock</button>
+                  </div>
                 </h4>
               </div>
               <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
