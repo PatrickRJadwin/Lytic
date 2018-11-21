@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location:pages/login.php");
+    }
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" class="default-style">
@@ -52,6 +59,10 @@
           <a class="nav-item nav-link px-0 ml-2" href="javascript:void(0)">
             <i class="ion ion-md-menu text-large align-middle"></i>
           </a>
+        </div>
+
+        <div class="mr-lg-4">
+          <a class="nav-item nav-link px-0 ml-2" href="pages/logout.php">Logout</a>
         </div>
 
         <!-- Navbar toggle -->
@@ -156,31 +167,9 @@
                   <div class="table-responsive">
                     <table class="table card-table" >
                       <tbody>
-                        <tr>
-                          <td class="align-middle">
-                            <a href="javascript:void(0)" onclick="clickChange('AAPL');" class="text-dark">AAPL</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="align-middle">
-                            <a href="javascript:void(0)" onclick="clickChange('TSLA');" class="text-dark">TSLA</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="align-right">
-                            <a href="javascript:void(0)" onclick="clickChange('MSFT');" class="text-dark">MSFT</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="align-middle">
-                            <a href="javascript:void(0)" onclick="clickChange('RHT');" class="text-dark">RHT</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="align-middle">
-                            <a href="javascript:void(0)" onclick="clickChange('AMD');" class="text-dark">AMD</a>
-                          </td>
-                        </tr>
+                        <?php
+                            require_once "php/quer_stocks.php"    
+                        ?>
                       </tbody>
                     </table>
                   </div>
