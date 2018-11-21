@@ -18,8 +18,9 @@ async function request(stock) {
    var finalDataLngth = finalData2.length - 1;
    var sector = " / " + finalData['sector'];
    var goodValue = true;
+   var realClosing;
    while (goodValue == true) {
-     var realClosing = finalData2[finalDataLngth]['average'].toFixed(2);
+     realClosing = finalData2[finalDataLngth]['average'].toFixed(2);
      if (realClosing == -1) {
         finalDataLngth -= 1;
      }
