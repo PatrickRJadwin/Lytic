@@ -17,4 +17,4 @@ Nov. 11 update: Twitter analysis removed due to cost of use
 * Bar & whisker plot
 * Change password function
 * Cleanup graph
-
+* Handle null values from API calls
