@@ -55,7 +55,7 @@
         <a href="index.html" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
 
         <!-- Sidenav toggle -->
-        
+
 
         <div class="navbar-nav align-items-lg-center mr-auto">
             <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-2 ml-1">|</div>
@@ -72,14 +72,14 @@
                 </div>
               </div>
         </div>
-            
+
         <!-- Navbar toggle -->
       </nav>
       <!-- / Layout navbar -->
 
       <div class="layout-container">
 
-        
+
         <div class="layout-content">
           <div class="container-fluid flex-grow-1 container-p-y">
             <div class="row">
@@ -111,69 +111,93 @@
                 </div>
               </div>
             </div>
-            <hr class="border-light container-m--x my-0">
-            <div class="row no-gutters row-bordered row-border-light container-m--x">
-              <div class="col-sm-6 col-md-3 col-lg-6 col-xl-3">
-                <div class="d-flex align-items-center container-p-x py-4">
-                  <div class="ion ion-md-book display-4 text-primary"></div>
-                  <div class="ml-3">
-                    <div class="text-muted small">Stock Price</div>
-                    <div class="text-large">$<span id="closing"></span></div>
+            <div class="row">
+              <div class="col-sm-6 col-xl-3">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="ion ion-md-book display-4 text-primary"></div>
+                      <div class="ml-3">
+                        <div class="text-muted small">Stock Price</div>
+                        <div class="text-large">$<span id="closing"></span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3 col-lg-6 col-xl-3">
-                <div class="d-flex align-items-center container-p-x py-4">
-                  <div class="ion ion-md-arrow-dropup-circle display-4 text-primary" id="arrow"></div>
-                  <div class="ml-3">
-                    <div class="text-muted small">Movement</div>
-                    <div class="text-large" id="txtColor"><span id="pointChng"></span> / <span id="percChng"></span>%</div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="ion ion-md-arrow-dropup-circle display-4 text-primary" id="arrow"></div>
+                      <div class="ml-3">
+                        <div class="text-muted small">Movement</div>
+                        <div class="text-large" id="txtColor"><span id="pointChng"></span> / <span id="percChng"></span>%</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3 col-lg-6 col-xl-3">
-                <div class="d-flex align-items-center container-p-x py-4">
-                  <div class="ion ion-md-calendar display-4 text-primary"></div>
-                  <div class="ml-3">
-                    <div class="text-muted small">YTD</div>
-                    <div class="text-large" id="ytdColor"><span id="ytd"></span></div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="ion ion-md-calendar display-4 text-primary"></div>
+                      <div class="ml-3">
+                        <div class="text-muted small">YTD</div>
+                        <div class="text-large" id="ytdColor"><span id="ytd"></span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3 col-lg-6 col-xl-3">
-                <div class="d-flex align-items-center container-p-x py-4">
-                  <div class="ion ion-md-alarm display-4 text-primary"></div>
-                  <div class="ml-3">
-                    <div class="text-muted small">Previous Close</div>
-                    <div class="text-large">$<span id="preClose"></span></div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="ion ion-md-alarm display-4 text-primary"></div>
+                      <div class="ml-3">
+                        <div class="text-muted small">Previous Close</div>
+                        <div class="text-large">$<span id="preClose"></span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <hr class="border-light container-m--x my-0">
-            <div class="row container-m--x" style="height: 100%; max-height: 400px;">
-              <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                <div class="card mb-4" style="height: 95%;">
-                  <h6 class="card-header">Pick a Stock</h6>
-                  <div class="table-responsive">
-                    <table class="table card-table" >
-                      <tbody>
-                        <?php
-                            require_once "php/quer_stocks.php"    
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                <div class="card mb-4" style="height: 85%; max-height: 400px;">
-                  <div id="curve_chart" style="height: 90%; max-height: 400px;"></div>
-                </div>
-              </div>
+            <div class="card mb-5">
+              <h6 class="card-header with-elements">
+                <div class="card-header-title">Pick a stock, or search for a symbol</div>
+                <div class="card-header-elements ml-auto">
+                  <label class="text m-0">
+                    <span class="text-light text-tiny font-weight-semibold align-middle">
+                      // todo, add incremenet chng
+                    </span>
 
+                  </label>
+                </div>
+              </h6>
+              <div class="row no-gutters no-bordered">
+                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                  <div class="card-body" style="height: 100%; overflow: scroll; overflow-x: hidden;">
+                    <div class="table-responsive">
+                      <table class="table card-table" >
+                        <tbody>
+                          <?php
+                              require_once "php/quer_stocks.php"
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                  <div class="card-body">
+                    <div id="curve_chart" style="height: 100%; min-height: 500px;"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <hr class="border-light container-m--x my-0">
             <!-- Page content -->
           </div>
           <!-- / Page content -->
@@ -186,6 +210,15 @@
 
     <div class="layout-overlay layout-sidenav-toggle"></div>
   </div>
+  <footer>
+    <nav class="layout-footer footer bg-dark">
+      <div class="container text-center py-4">
+        <div class="pb-3">
+          <p style="color: rgb(200, 200, 200)" class="footer-text font-weight-normal">Data provided for free by <a href="https://iextrading.com/developer/">IEX</a>. View IEX’s <a href="https://iextrading.com/api-exhibit-a/">Terms of Use.</a></p>
+        </div>
+      </div>
+    </nav>
+  </footer>
   <!-- / Layout wrapper -->
 
   <!-- Core scripts -->

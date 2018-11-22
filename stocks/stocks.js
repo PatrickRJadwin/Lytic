@@ -28,7 +28,7 @@ async function request(stock) {
         goodValue = false;
      }
    }
-   
+
    document.getElementById("closing").innerHTML = realClosing;
    document.getElementById("symbol").innerHTML = finalData['symbol'];
    document.getElementById("stckName").innerHTML = finalData['companyName'];
@@ -86,7 +86,7 @@ function drawChart() {
       else {
         arr.push([finalData3[i]['minute'], prevValue]);
       }
-      
+
    }
    data.addRows(arr);
 
@@ -139,7 +139,6 @@ function addStock() {
         data: {newStk: sessionStock}
     }).done(function( msg ) {
         var stk = sessionStock;
-        alert( "Data Saved: " + sessionStock );
         location.reload();
         request(stk);
     });
