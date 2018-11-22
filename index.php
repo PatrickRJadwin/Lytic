@@ -67,7 +67,7 @@
                   </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="pages/logout.php" class="dropdown-item">
+                  <a href="php/logout.php" class="dropdown-item">
                     <i class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
                 </div>
               </div>
