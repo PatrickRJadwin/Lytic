@@ -72,36 +72,110 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="default-style">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+  <title>Login - 'Lytic</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+
+  <!-- Icon fonts -->
+  <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome.css">
+  <link rel="stylesheet" href="../assets/vendor/fonts/ionicons.css">
+  <link rel="stylesheet" href="../assets/vendor/fonts/linearicons.css">
+  <link rel="stylesheet" href="../assets/vendor/fonts/open-iconic.css">
+  <link rel="stylesheet" href="../assets/vendor/fonts/pe-icon-7-stroke.css">
+
+  <!-- Core stylesheets -->
+  <link rel="stylesheet" href="../assets/vendor/css/rtl/bootstrap.css" class="theme-settings-bootstrap-css">
+  <link rel="stylesheet" href="../assets/vendor/css/rtl/appwork.css" class="theme-settings-appwork-css">
+  <link rel="stylesheet" href="../assets/vendor/css/rtl/theme-corporate.css" class="theme-settings-theme-css">
+  <link rel="stylesheet" href="../assets/vendor/css/rtl/colors.css" class="theme-settings-colors-css">
+  <link rel="stylesheet" href="../assets/vendor/css/rtl/uikit.css">
+  <link rel="stylesheet" href="../assets/css/demo.css">
+
+  <script src="../assets/vendor/js/material-ripple.js"></script>
+  <script src="../assets/vendor/js/layout-helpers.js"></script>
+
+  <!-- Core scripts -->
+  <script src="../assets/vendor/js/pace.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Libs -->
+  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+  <!-- Page -->
+  <link rel="stylesheet" href="../assets/vendor/css/pages/authentication.css">
 </head>
+
 <body>
-    <div class="wrapper">
-	<h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
-            </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-        </form>
+  <div class="page-loader">
+    <div class="bg-primary"></div>
+  </div>
+
+  <!-- Content -->
+
+  <div class="authentication-wrapper authentication-1 px-4">
+    <div class="authentication-inner py-5">
+
+      <!-- Logo -->
+      <div class="d-flex justify-content-center align-items-center">
+        <img style="max-width: 40%; max-height: 30%" src="../pics/logo-blk.png" />
+      </div>
+      <!-- / Logo -->
+
+      <!-- Form -->
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="my-5">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+          <label class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+          <span class="help-block"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+          <label class="form-label d-flex justify-content-between align-items-end">
+            <div>Password</div>
+            <a href="javascript:void(0)" class="d-block small">Forgot password?</a>
+          </label>
+          <input type="password" name="password" class="form-control">
+          <span class="help-block"><?php echo $password_err; ?></span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center m-0">
+          <label class="custom-control custom-checkbox m-0">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-label">Remember me</span>
+          </label>
+          <button type="submit" class="btn btn-primary" value="Login">Sign In</button>
+        </div>
+      </form>
+      <!-- / Form -->
+
+      <div class="text-center text-muted">
+        Don't have an account yet?
+        <a href="register.php">Sign Up</a>
+      </div>
+
     </div>
+  </div>
+
+  <!-- / Content -->
+
+  <!-- Core scripts -->
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+  <script src="../assets/vendor/js/sidenav.js"></script>
+
+  <!-- Libs -->
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <!-- Demo -->
+  <script src="../assets/js/demo.js"></script>
+
 </body>
+
 </html>
