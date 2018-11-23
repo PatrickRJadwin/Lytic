@@ -106,7 +106,7 @@
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card mb-4">
-                  <a id="twitter" class="twitter-timeline" data-lang="en" data-width="2600" data-height="290" data-theme="light" data-link-color="#2B7BB9" data-chrome="nofooter" href="#">
+                  <a class="twitter-timeline" data-lang="en" data-width="2600" data-height="290" data-theme="light" data-link-color="#2B7BB9" data-chrome="nofooter" href="https://twitter.com/WSJmarkets">
                   </a>
                 </div>
               </div>
@@ -174,14 +174,12 @@
                       <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Time-Span</button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1)">1 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(10)">10 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(30)">30 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(60)">1 hour</a>
-                          <a class="dropdown-item" href="javascript:void(0)">day</a>
-                          <a class="dropdown-item" href="javascript:void(0)">week</a>
-                          <a class="dropdown-item" href="javascript:void(0)">month</a>
-                          <a class="dropdown-item" href="javascript:void(0)">year</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'day')">1 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(10, 'day')">10 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(30, 'day')">30 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(60, 'day')">1 hour</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'month')">Month</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'year')">Year</a>
                         </div>
                       </div>
                     </span>
@@ -204,7 +202,7 @@
                 </div>
                 <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
                   <div class="card-body">
-                    <div id="curve_chart" style="height: 100%; min-height: 500px;"></div>
+                    <div id="curve_chart" style="height: 95%; min-height: 400px;"></div>
                   </div>
                 </div>
               </div>
