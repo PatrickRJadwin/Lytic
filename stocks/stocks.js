@@ -2,6 +2,7 @@ var finalData3;
 var chart;
 var data;
 var options;
+var time = 10;
 
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -72,13 +73,13 @@ function drawChart() {
    data.addColumn('number', '');
    var arr = [];
    var timearr = [];
-   for (var i = 0; i < finalData3.length; i += 10) {
+   for (var i = 0; i < finalData3.length; i += time) {
       var prevValue = finalData3[i]['average'];
       if (prevValue != -1) {
         break;
       }
    }
-   for (var i = 0; i < finalData3.length; i += 10) {
+   for (var i = 0; i < finalData3.length; i += time) {
       if (finalData3[i]['average'] != -1) {
         arr.push([finalData3[i]['minute'], finalData3[i]['average']]);
         prevValue = finalData3[i]['average'];
@@ -127,6 +128,11 @@ function search() {
   var srch = document.getElementById("srchbx").value
   request(srch);
   sessionStock = srch;
+}
+
+function timeChng(chng) {
+  time = chng;
+  request(sessionStock);
 }
 
 $(window).resize(function(){

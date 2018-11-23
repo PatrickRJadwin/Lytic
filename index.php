@@ -171,9 +171,20 @@
                 <div class="card-header-elements ml-auto">
                   <label class="text m-0">
                     <span class="text-light text-tiny font-weight-semibold align-middle">
-                      // todo, add incremenet chng
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Time-Span</button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1)">1 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(10)">10 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(30)">30 minute</a>
+                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(60)">1 hour</a>
+                          <a class="dropdown-item" href="javascript:void(0)">day</a>
+                          <a class="dropdown-item" href="javascript:void(0)">week</a>
+                          <a class="dropdown-item" href="javascript:void(0)">month</a>
+                          <a class="dropdown-item" href="javascript:void(0)">year</a>
+                        </div>
+                      </div>
                     </span>
-
                   </label>
                 </div>
               </h6>
