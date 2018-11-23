@@ -145,10 +145,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <span class="help-block"><?php echo $password_err; ?></span>
         </div>
         <div class="d-flex justify-content-between align-items-center m-0">
-          <label class="custom-control custom-checkbox m-0">
-            <input type="checkbox" class="custom-control-input">
-            <span class="custom-control-label">Remember me</span>
-          </label>
           <button type="submit" class="btn btn-primary" value="Login">Sign In</button>
         </div>
       </form>
