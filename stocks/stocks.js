@@ -88,9 +88,10 @@ function drawChart() {
       }
 
    }
+
    data.addRows(arr);
 
-   options = {
+   var options = {
      legend: {
        position: 'none'
      },

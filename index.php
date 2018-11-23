@@ -52,7 +52,7 @@
 
       <!-- Layout navbar -->
       <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-navbar-theme container-p-x bg-dark" id="layout-navbar">
-        <a href="index.html" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
+        <a href="index.php" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
 
         <!-- Sidenav toggle -->
 
