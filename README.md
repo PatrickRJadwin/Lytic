@@ -8,8 +8,7 @@ Under construction
 
 ## TODO
 
-* Time increment on graph
-* Cleanup login/registration
+* Time increment on graph - **_in progress_**
 * Add profile page
 * Create webpage loading w/ JQuery
 * Bar & whisker plot
