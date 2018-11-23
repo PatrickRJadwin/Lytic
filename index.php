@@ -41,7 +41,12 @@
   <!-- `perfect-scrollbar` library required by SideNav plugin -->
   <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
 
+  <link rel="stylesheet" href="css/loader.css" />
+
 </head>
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
 <body>
 
   <!-- Layout wrapper -->

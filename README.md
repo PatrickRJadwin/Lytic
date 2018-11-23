@@ -8,9 +8,8 @@ Under construction
 
 ## TODO
 
-* Refactor logic -1 values, (0 trades in that period == null value)
-* Create webpage loading w/ JQuery
-* Bar & whisker plot
 * Change password function
+* Graph loading bar on draw
+* Bar & whisker plot
 * Cleanup graph
-* Handle null values from API calls
+* Refactor logic -1 values, (0 trades in that period == null value)
