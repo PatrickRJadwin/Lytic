@@ -8,6 +8,7 @@ Under construction
 
 ## TODO
 
+* Dynamic dropbox
 * Change password function
 * Graph loading bar on draw
 * Bar & whisker plot
