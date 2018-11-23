@@ -140,7 +140,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
           <label class="form-label d-flex justify-content-between align-items-end">
             <div>Password</div>
-            <a href="javascript:void(0)" class="d-block small">Forgot password?</a>
           </label>
           <input type="password" name="password" class="form-control">
           <span class="help-block"><?php echo $password_err; ?></span>
