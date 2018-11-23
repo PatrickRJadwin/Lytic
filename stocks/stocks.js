@@ -1,5 +1,3 @@
-// Test
-
 var finalData3;
 var chart;
 var data;
@@ -75,7 +73,7 @@ async function request(stock) {
 function drawChart() {
   data = new google.visualization.DataTable();
   data.addColumn('string', '');
-  data.addColumn('number', '');
+  data.addColumn('number', 'Price');
   var arr = [];
   var timearr = [];
   if (urlEnd == '/chart/1d') {
@@ -116,7 +114,7 @@ function drawChart() {
 
   var options = {
     legend: {
-      position: 'none'
+      position: 'right'
     },
     axes: {
       x: {
