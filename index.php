@@ -111,7 +111,7 @@
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card mb-4">
-                  <a class="twitter-timeline" data-lang="en" data-width="2600" data-height="290" data-theme="light" data-link-color="#2B7BB9" data-chrome="nofooter" href="https://twitter.com/WSJmarkets">
+                  <a class="twitter-timeline" data-lang="en" data-width="2600" data-height="350" data-theme="light" data-link-color="#2B7BB9" data-chrome="nofooter" href="https://twitter.com/WSJmarkets">
                   </a>
                 </div>
               </div>
