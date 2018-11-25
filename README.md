@@ -1,7 +1,7 @@
 # Twitter-Stock-Analysis
 
-## Working Prototype
-http://104.248.234.191
+## Link To Working Site
+https://stocklytic.org/
 
 _______
 Under construction
