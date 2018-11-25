@@ -60,8 +60,6 @@
         <a href="index.php" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
 
         <!-- Sidenav toggle -->
-
-
         <div class="navbar-nav align-items-lg-center mr-auto">
             <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-2 ml-1">|</div>
 
@@ -193,7 +191,7 @@
               </h6>
               <div class="row no-gutters no-bordered">
                 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                  <div class="card-body" style="height: 100%; overflow: scroll; overflow-x: hidden;">
+                  <div class="card-body" style="height: 100%; max-height: 400px; overflow: scroll; overflow-x: hidden;">
                     <div class="table-responsive">
                       <table class="table card-table" >
                         <tbody>

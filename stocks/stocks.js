@@ -5,6 +5,7 @@ var options;
 var time = 10;
 var urlStrt = 'https://api.iextrading.com/1.0/stock/';
 var urlEnd = '/chart/1d';
+var valid;
 
 function Get(yourUrl) {
   var Httpreq = new XMLHttpRequest(); // a new request
@@ -16,8 +17,17 @@ function Get(yourUrl) {
 async function request(stock) {
   var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
   var url2 = urlStrt + stock + urlEnd;
-  var finalData = JSON.parse(Get(url));
-  var finalData2 = JSON.parse(Get(url2));
+  var srchbx = document.getElementById("srchbx")
+  try {
+    var finalData = JSON.parse(Get(url));
+    var finalData2 = JSON.parse(Get(url2));
+  } catch (e) {
+    valid = false;
+    srchbx.classList.add("is-invalid");
+    setTimeout(function(){ srchbx.classList.remove("is-invalid") }, 2000);
+    return;
+  }
+  valid = true;
   var finalDataLngth = finalData2.length - 1;
   var sector = " / " + finalData['sector'];
   var goodValue = true;
@@ -142,7 +152,11 @@ function clickChange(newStock, increment) {
 function search() {
   var srch = document.getElementById("srchbx").value
   request(srch);
-  sessionStock = srch;
+  if (valid === true) {
+    sessionStock = srch;
+  } else {
+    return;
+  }
 }
 
 function timeChng(chng, increment) {
