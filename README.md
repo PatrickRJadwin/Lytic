@@ -1,4 +1,8 @@
-# Twitter-Stock-Analysis
+# 'Lytic
+
+'Lytic' is a stock dashboard.  It allows users to query and keep track of stock market trends.  Information is sourced through the free IEX Stock API
+
+Information on IEX API can be found here: https://iextrading.com/developer/
 
 ## Link To Working Site
 https://stocklytic.org/
