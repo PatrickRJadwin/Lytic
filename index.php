@@ -16,29 +16,19 @@
 
   <title>'Lytic</title>
 
-  <!-- Main font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
-  <!-- Icons. Uncomment required icon fonts -->
-  <!-- <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css"> -->
   <link rel="stylesheet" href="assets/vendor/fonts/ionicons.css">
   <link rel="stylesheet" href="assets/vendor/fonts/linearicons.css">
-  <!-- <link rel="stylesheet" href="assets/vendor/fonts/open-iconic.css"> -->
-  <!-- <link rel="stylesheet" href="assets/vendor/fonts/pe-icon-7-stroke.css"> -->
-
-  <!-- Core stylesheets -->
+  
   <link rel="stylesheet" href="assets/vendor/css/bootstrap.css">
   <link rel="stylesheet" href="assets/vendor/css/appwork.css">
   <link rel="stylesheet" href="assets/vendor/css/theme-corporate.css">
   <link rel="stylesheet" href="assets/vendor/css/colors.css">
   <link rel="stylesheet" href="assets/vendor/css/uikit.css">
 
-  <!-- Layout helpers -->
   <script src="assets/vendor/js/layout-helpers.js"></script>
 
-  <!-- Libs -->
-
-  <!-- `perfect-scrollbar` library required by SideNav plugin -->
   <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
 
   <link rel="stylesheet" href="css/loader.css" />
@@ -48,21 +38,12 @@
   <div id="status">&nbsp;</div>
 </div>
 <body>
-
-  <!-- Layout wrapper -->
   <div class="layout-wrapper layout-1">
-    <!-- Layout inner -->
     <div class="layout-inner">
-
-
-      <!-- Layout navbar -->
       <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-navbar-theme container-p-x bg-dark" id="layout-navbar">
         <a href="index.php" class="navbar-brand"><img src="pics/logo.png" style="width: 40px;"/></a>
-
-        <!-- Sidenav toggle -->
         <div class="navbar-nav align-items-lg-center mr-auto">
             <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-2 ml-1">|</div>
-
               <div class="demo-navbar-user nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                   <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
@@ -75,14 +56,8 @@
                 </div>
               </div>
         </div>
-
-        <!-- Navbar toggle -->
       </nav>
-      <!-- / Layout navbar -->
-
       <div class="layout-container">
-
-
         <div class="layout-content">
           <div class="container-fluid flex-grow-1 container-p-y">
             <div class="row">
@@ -210,16 +185,10 @@
                 </div>
               </div>
             </div>
-            <!-- Page content -->
           </div>
-          <!-- / Page content -->
-
         </div>
       </div>
-
     </div>
-    <!-- Layout inner -->
-
     <div class="layout-overlay layout-sidenav-toggle"></div>
   </div>
   <footer>
@@ -231,17 +200,12 @@
       </div>
     </nav>
   </footer>
-  <!-- / Layout wrapper -->
-
-  <!-- Core scripts -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/vendor/libs/popper/popper.js"></script>
   <script src="assets/vendor/js/bootstrap.js"></script>
   <script src="assets/vendor/js/sidenav.js"></script>
-  <!-- `perfect-scrollbar` library required by SideNav plugin -->
   <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-  <!-- Main script -->
   <script src="assets/js/main.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="stocks/stocks.js"></script>
