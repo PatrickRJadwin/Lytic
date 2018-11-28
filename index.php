@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="assets/vendor/fonts/ionicons.css">
   <link rel="stylesheet" href="assets/vendor/fonts/linearicons.css">
-  
+
   <link rel="stylesheet" href="assets/vendor/css/bootstrap.css">
   <link rel="stylesheet" href="assets/vendor/css/appwork.css">
   <link rel="stylesheet" href="assets/vendor/css/theme-corporate.css">
@@ -51,7 +51,7 @@
                   </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="php/logout.php" class="dropdown-item">
+                  <a href="php/logout.php" class="dropdown-item" onclick="sessionStorage.clear();">
                     <i class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
                 </div>
               </div>
