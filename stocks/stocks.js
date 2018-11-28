@@ -15,6 +15,10 @@ function Get(yourUrl) {
 }
 
 async function request(stock) {
+  if (sessionStorage.getItem("seshStock")) {
+      stock = sessionStorage.getItem("seshStock");
+  }
+  console.log(stock);
   var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
   var url2 = urlStrt + stock + urlEnd;
   var srchbx = document.getElementById("srchbx")
@@ -144,13 +148,18 @@ var sessionStock = 'AAPL';
 
 request(sessionStock);
 
-function clickChange(newStock, increment) {
-  request(newStock);
+function clickChange(newStock) {
   sessionStock = newStock;
+  sessionStorage.clear();
+  sessionStorage.setItem("seshStock", newStock);
+  request(newStock);
+  console.log(sessionStorage.getItem("seshStock"));
 }
 
 function search() {
   var srch = document.getElementById("srchbx").value
+  sessionStorage.clear();
+  sessionStorage.setItem("seshStock", srch);
   request(srch);
   if (valid === true) {
     sessionStock = srch;
