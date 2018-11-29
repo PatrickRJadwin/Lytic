@@ -18,7 +18,6 @@ async function request(stock) {
   if (sessionStorage.getItem("seshStock")) {
       stock = sessionStorage.getItem("seshStock");
   }
-  console.log(stock);
   var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
   var url2 = urlStrt + stock + urlEnd;
   var srchbx = document.getElementById("srchbx")
