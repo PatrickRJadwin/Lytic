@@ -151,6 +151,7 @@ function clickChange(newStock) {
   sessionStock = newStock;
   sessionStorage.clear();
   sessionStorage.setItem("seshStock", newStock);
+  sessionStock = newStock;
   request(newStock);
   console.log(sessionStorage.getItem("seshStock"));
 }
@@ -159,6 +160,7 @@ function search() {
   var srch = document.getElementById("srchbx").value
   sessionStorage.clear();
   sessionStorage.setItem("seshStock", srch);
+  sessionStock = srch;
   request(srch);
   if (valid === true) {
     sessionStock = srch;
@@ -193,9 +195,8 @@ function addStock() {
       newStk: sessionStock
     }
   }).done(function(msg) {
-    var stk = sessionStock;
+    request(sessionStock);
     location.reload();
-    request(stk);
   });
 }
     
@@ -207,6 +208,7 @@ function removeStock(clicked_id) {
             removeStk: clicked_id
         }
     }).done(function(msg) {
+        request(sessionStock);
         location.reload();
     });
 }
