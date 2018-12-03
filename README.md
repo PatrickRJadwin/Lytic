@@ -14,6 +14,8 @@ Under construction
 
 * Dynamic dropbox
 * Change password function
+* Delete saved stocks
+* Refactor design to be more intuitive
 * Graph loading bar on draw
 * Bar & whisker plot
 * Cleanup graph
