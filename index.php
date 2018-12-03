@@ -18,6 +18,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css">  
   <link rel="stylesheet" href="assets/vendor/fonts/ionicons.css">
   <link rel="stylesheet" href="assets/vendor/fonts/linearicons.css">
 
@@ -149,22 +150,28 @@
                 <div class="card-header-elements ml-auto">
                   <label class="text m-0">
                     <span class="text-light text-tiny font-weight-semibold align-middle">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Time-Span</button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'day')">1 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(10, 'day')">10 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(30, 'day')">30 minute</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(60, 'day')">1 hour</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'month')">Month</a>
-                          <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'year')">Year</a>
+                      <div class="btn-toolbar">
+                        <div class="btn-group">
+                          <button id="changestockbtn" type="button" onclick="showDelete();" class="btn btn-default"><i class="fas fa-cog"></i></button>
+                        </div> 
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Time-Span</button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'day')">1 minute</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(10, 'day')">10 minute</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(30, 'day')">30 minute</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(60, 'day')">1 hour</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'month')">Month</a>
+                            <a class="dropdown-item" href="javascript:void(0)" onclick="timeChng(1, 'year')">Year</a>
+                          </div>
                         </div>
+                        
                       </div>
                     </span>
                   </label>
                 </div>
               </h6>
-              <div class="row no-gutters no-bordered">
+              <div class="row no-gutters no-bordered" id="refresh">
                 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                   <div class="card-body" style="height: 100%; max-height: 400px; overflow: scroll; overflow-x: hidden;">
                     <div class="table-responsive">

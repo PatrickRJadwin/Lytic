@@ -23,7 +23,7 @@
         while ($row = mysqli_fetch_assoc($usrStocks)) {
             echo "<tr>\n";
             echo "<td class=\"align-middle\">\n";
-            echo "<a href=\"javascript:void(0)\" onclick=\"clickChange('" . $row['stocktag'] . "');\" class=\"text-dark\">" . $row['stocktag'] . "</a>\n";
+            echo "<a href=\"javascript:void(0)\" id=\"" . $row['stocktag'] . "\" onclick=\"clickChange('" . $row['stocktag'] . "');\" class=\"stockchanger text-dark\">" . $row['stocktag'] . "</a>\n";
             echo "</td>\n";
             echo "</tr>\n";
         }

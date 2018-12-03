@@ -198,6 +198,43 @@ function addStock() {
     request(stk);
   });
 }
+    
+function removeStock(clicked_id) {
+    $.ajax({
+        type: "POST",
+        url: "php/removeStock.php",
+        data: {
+            removeStk: clicked_id
+        }
+    }).done(function(msg) {
+        location.reload();
+    });
+}
+
+var clicked = false;
+
+function showDelete() {
+    if (clicked == false) {
+        const newA = document.createElement("a");
+        newA.href = "javascript:void(0)";
+        newA.classList.add("trash");
+        const newI = document.createElement("i");
+        newI.className = "fas fa-trash";
+        newI.style.marginRight = "5%";
+        newA.appendChild(newI);
+        $(newA).insertBefore(".stockchanger"); 
+        clicked = true
+        $('.trash').click(function() { removeStock( $(this).next().attr('id') ); });
+    } else {
+        removeDelete();
+        clicked = false;
+    }
+}
+
+function removeDelete() {
+    var trash = $('.trash');
+    trash.remove();
+}
 
 $(window).on('load', function() { 
   $('#status').fadeOut(); 
