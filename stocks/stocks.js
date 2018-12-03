@@ -195,8 +195,8 @@ function addStock() {
       newStk: sessionStock
     }
   }).done(function(msg) {
-    request(sessionStock);
     location.reload();
+    request(sessionStock);
   });
 }
     
@@ -208,8 +208,8 @@ function removeStock(clicked_id) {
             removeStk: clicked_id
         }
     }).done(function(msg) {
-        request(sessionStock);
         location.reload();
+        request(sessionStock);
     });
 }
 
