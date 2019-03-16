@@ -3,8 +3,8 @@ var chart;
 var data;
 var options;
 var time = 10;
-var urlStrt = 'https://api.iextrading.com/1.0/stock/';
-var urlEnd = '/chart/1d';
+var urlStrt = "https://api.iextrading.com/1.0/stock/";
+var urlEnd = "/chart/1d";
 var valid;
 
 function Get(yourUrl) {
@@ -16,23 +16,25 @@ function Get(yourUrl) {
 
 async function request(stock) {
   if (sessionStorage.getItem("seshStock")) {
-      stock = sessionStorage.getItem("seshStock");
+    stock = sessionStorage.getItem("seshStock");
   }
-  var url = 'https://api.iextrading.com/1.0/stock/' + stock + '/quote';
+  var url = "https://api.iextrading.com/1.0/stock/" + stock + "/quote";
   var url2 = urlStrt + stock + urlEnd;
-  var srchbx = document.getElementById("srchbx")
+  var srchbx = document.getElementById("srchbx");
   try {
     var finalData = JSON.parse(Get(url));
     var finalData2 = JSON.parse(Get(url2));
   } catch (e) {
     valid = false;
     srchbx.classList.add("is-invalid");
-    setTimeout(function(){ srchbx.classList.remove("is-invalid") }, 2000);
+    setTimeout(function() {
+      srchbx.classList.remove("is-invalid");
+    }, 2000);
     return;
   }
   valid = true;
   var finalDataLngth = finalData2.length - 1;
-  var sector = " / " + finalData['sector'];
+  var sector = " / " + finalData["sector"];
   var goodValue = true;
   var realClosing;
   while (goodValue == true) {
@@ -50,75 +52,79 @@ async function request(stock) {
   }
 
   document.getElementById("closing").innerHTML = realClosing;
-  document.getElementById("symbol").innerHTML = finalData['symbol'];
-  document.getElementById("stckName").innerHTML = finalData['companyName'];
+  document.getElementById("symbol").innerHTML = finalData["symbol"];
+  document.getElementById("stckName").innerHTML = finalData["companyName"];
   if (sector != "") {
     document.getElementById("sector").innerHTML = sector;
   }
 
-  if (finalData['change'] > 0) {
+  if (finalData["change"] > 0) {
     document.getElementById("txtColor").style.color = "green";
-    document.getElementById("arrow").className = "ion ion-md-arrow-dropup-circle display-4 text-primary";
+    document.getElementById("arrow").className =
+      "ion ion-md-arrow-dropup-circle display-4 text-primary";
   } else {
     document.getElementById("txtColor").style.color = "red";
-    document.getElementById("arrow").className = "ion ion-md-arrow-dropdown-circle display-4 text-primary";
+    document.getElementById("arrow").className =
+      "ion ion-md-arrow-dropdown-circle display-4 text-primary";
   }
 
-  document.getElementById("pointChng").innerHTML = finalData['change'];
-  document.getElementById("percChng").innerHTML = finalData['changePercent'];
+  document.getElementById("pointChng").innerHTML = finalData["change"];
+  document.getElementById("percChng").innerHTML = finalData["changePercent"];
 
-  if (finalData['ytdChange'] > 0) {
+  if (finalData["ytdChange"] > 0) {
     document.getElementById("ytdColor").style.color = "green";
-    document.getElementById("ytd").innerHTML = '+' + finalData['ytdChange'].toFixed(2);
+    document.getElementById("ytd").innerHTML =
+      "+" + finalData["ytdChange"].toFixed(2);
   } else {
     document.getElementById("ytdColor").style.color = "red";
-    document.getElementById("ytd").innerHTML = finalData['ytdChange'].toFixed(2);
+    document.getElementById("ytd").innerHTML = finalData["ytdChange"].toFixed(
+      2
+    );
   }
 
-  document.getElementById("preClose").innerHTML = finalData['close'].toFixed(2);
+  document.getElementById("preClose").innerHTML = finalData["close"].toFixed(2);
   finalData3 = JSON.parse(Get(url2));
-  google.charts.load('current', {
-    'packages': ['line']
+  google.charts.load("current", {
+    packages: ["line"]
   });
   google.charts.setOnLoadCallback(drawChart);
 }
 
 function drawChart() {
   data = new google.visualization.DataTable();
-  data.addColumn('string', '');
-  data.addColumn('number', 'Price');
+  data.addColumn("string", "");
+  data.addColumn("number", "Price");
   var arr = [];
   var timearr = [];
-  if (urlEnd == '/chart/1d') {
+  if (urlEnd == "/chart/1d") {
     for (var i = 0; i < finalData3.length; i += time) {
-      var prevValue = finalData3[i]['average'];
+      var prevValue = finalData3[i]["average"];
       if (prevValue != -1) {
         break;
       }
     }
     for (var i = 0; i < finalData3.length; i += time) {
-      if (finalData3[i]['average'] != -1) {
-        arr.push([finalData3[i]['minute'], finalData3[i]['average']]);
-        prevValue = finalData3[i]['average'];
+      if (finalData3[i]["average"] != -1) {
+        arr.push([finalData3[i]["minute"], finalData3[i]["average"]]);
+        prevValue = finalData3[i]["average"];
       } else {
-        arr.push([finalData3[i]['minute'], prevValue]);
+        arr.push([finalData3[i]["minute"], prevValue]);
       }
-
     }
   }
-  if (urlEnd == '/chart/1m' || urlEnd == '/chart/1y') {
+  if (urlEnd == "/chart/1m" || urlEnd == "/chart/1y") {
     for (var i = 0; i < finalData3.length; i += time) {
-      var prevValue = finalData3[i]['close'];
+      var prevValue = finalData3[i]["close"];
       if (prevValue != -1) {
         break;
       }
     }
     for (var i = 0; i < finalData3.length; i += time) {
-      if (finalData3[i]['close'] != -1) {
-        arr.push([finalData3[i]['label'], finalData3[i]['close']]);
-        prevValue = finalData3[i]['close'];
+      if (finalData3[i]["close"] != -1) {
+        arr.push([finalData3[i]["label"], finalData3[i]["close"]]);
+        prevValue = finalData3[i]["close"];
       } else {
-        arr.push([finalData3[i]['label'], prevValue]);
+        arr.push([finalData3[i]["label"], prevValue]);
       }
     }
   }
@@ -127,23 +133,23 @@ function drawChart() {
 
   var options = {
     legend: {
-      position: 'right'
+      position: "right"
     },
     axes: {
       x: {
         0: {
-          side: 'bottom'
+          side: "bottom"
         }
       }
     }
   };
 
-  chart = new google.charts.Line(document.getElementById('curve_chart'));
+  chart = new google.charts.Line(document.getElementById("curve_chart"));
 
   chart.draw(data, google.charts.Line.convertOptions(options));
 }
 
-var sessionStock = 'AAPL';
+var sessionStock = "AAPL";
 
 request(sessionStock);
 
@@ -157,7 +163,7 @@ function clickChange(newStock) {
 }
 
 function search() {
-  var srch = document.getElementById("srchbx").value
+  var srch = document.getElementById("srchbx").value;
   sessionStorage.clear();
   sessionStorage.setItem("seshStock", srch);
   sessionStock = srch;
@@ -170,14 +176,12 @@ function search() {
 }
 
 function timeChng(chng, increment) {
-  if (increment == 'year') {
-    urlEnd = '/chart/1y';
-  }
-  else if (increment == 'month') {
-    urlEnd = '/chart/1m';
-  }
-  else {
-    urlEnd = '/chart/1d';
+  if (increment == "year") {
+    urlEnd = "/chart/1y";
+  } else if (increment == "month") {
+    urlEnd = "/chart/1m";
+  } else {
+    urlEnd = "/chart/1d";
   }
   time = chng;
   request(sessionStock);
@@ -199,47 +203,57 @@ function addStock() {
     request(sessionStock);
   });
 }
-    
+
 function removeStock(clicked_id) {
-    $.ajax({
-        type: "POST",
-        url: "php/removeStock.php",
-        data: {
-            removeStk: clicked_id
-        }
-    }).done(function(msg) {
-        location.reload();
-        request(sessionStock);
-    });
+  $.ajax({
+    type: "POST",
+    url: "php/removeStock.php",
+    data: {
+      removeStk: clicked_id
+    }
+  }).done(function(msg) {
+    location.reload();
+    request(sessionStock);
+  });
 }
 
 var clicked = false;
 
 function showDelete() {
-    if (clicked == false) {
-        const newA = document.createElement("a");
-        newA.href = "javascript:void(0)";
-        newA.classList.add("trash");
-        const newI = document.createElement("i");
-        newI.className = "fas fa-trash";
-        newI.style.marginRight = "5%";
-        newA.appendChild(newI);
-        $(newA).insertBefore(".stockchanger"); 
-        clicked = true
-        $('.trash').click(function() { removeStock( $(this).next().attr('id') ); });
-    } else {
-        removeDelete();
-        clicked = false;
-    }
+  if (clicked == false) {
+    const newA = document.createElement("a");
+    newA.href = "javascript:void(0)";
+    newA.classList.add("trash");
+    const newI = document.createElement("i");
+    newI.className = "fas fa-trash";
+    newI.style.marginRight = "5%";
+    newA.appendChild(newI);
+    $(newA).insertBefore(".stockchanger");
+    clicked = true;
+    $(".trash").click(function() {
+      removeStock(
+        $(this)
+          .next()
+          .attr("id")
+      );
+    });
+  } else {
+    removeDelete();
+    clicked = false;
+  }
 }
 
 function removeDelete() {
-    var trash = $('.trash');
-    trash.remove();
+  var trash = $(".trash");
+  trash.remove();
 }
 
-$(window).on('load', function() { 
-  $('#status').fadeOut(); 
-  $('#preloader').delay(350).fadeOut('slow');
-  $('body').delay(350).css({'overflow':'visible'});
-})
+$(window).on("load", function() {
+  $("#status").fadeOut();
+  $("#preloader")
+    .delay(350)
+    .fadeOut("slow");
+  $("body")
+    .delay(350)
+    .css({ overflow: "visible" });
+});
