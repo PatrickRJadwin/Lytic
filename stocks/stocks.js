@@ -38,10 +38,11 @@ async function request(stock) {
   var goodValue = true;
   var realClosing;
   while (goodValue == true) {
-    if (urlEnd == "/chart/1d") {
-      realClosing = finalData2[0]["close"].toFixed(2);
-    } else {
-      realClosing = finalData2[finalDataLngth]["close"].toFixed(2);
+    if (urlEnd == '/chart/1d') {
+      realClosing = finalData2[0]['marketClose'].toFixed(2);
+    }
+    else {
+      realClosing = finalData2[finalDataLngth]['close'].toFixed(2);
     }
     if (realClosing == -1) {
       finalDataLngth -= 1;
